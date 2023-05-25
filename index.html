@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>나의 홈페이지</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>나의 홈페이지</h1>
+    <nav>
+      <a href="#intro">소개</a>
+      <a href="#portfolio">포트폴리오</a>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="intro">
+      <h2>나를 소개합니다</h2>
+      <p>여기에 나에 대한 정보와 사진을 추가하세요.</p>
+      <a href="#">첫 페이지로 돌아가기</a>
+    </section>
+    
+    <section id="portfolio">
+      <h2>포트폴리오</h2>
+      <div id="slideshow">
+        <img src="image1.jpg" alt="포트폴리오 1" onclick="openLink('page1.html')">
+        <img src="image2.jpg" alt="포트폴리오 2" onclick="openLink('page2.html')">
+        <img src="image3.jpg" alt="포트폴리오 3" onclick="openLink('page3.html')">
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 나의 홈페이지. 모든 권리 보유.</p>
+  </footer>
+
+  <script>
+    // 포트폴리오 사진 변경을 위한 스크립트
+    var slideshow = document.getElementById("slideshow");
+    var images = slideshow.getElementsByTagName("img");
+    var currentIndex = 0;
+
+    function changeImage() {
+      images[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add("active");
+    }
+
+    setInterval(changeImage, 3000);
+
+    // 링크 열기를 위한 스크립트
+    function openLink(url) {
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
